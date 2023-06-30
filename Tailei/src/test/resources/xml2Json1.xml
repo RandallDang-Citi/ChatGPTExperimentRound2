@@ -1,0 +1,6 @@
+<ObjectNode>
+    <clientId>X</clientId>
+    <buySell>BUY</buySell>
+    <quantity>1000</quantity>
+    <aon>N</aon>
+</ObjectNode>

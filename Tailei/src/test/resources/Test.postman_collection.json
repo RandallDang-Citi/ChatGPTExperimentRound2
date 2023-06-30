@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "072e9f6a-10c5-48c1-9aa3-ec456ab059a1",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProcessTrade",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"clientId\": \"X\",\"buySell\":\"BUY\",\"quantity\":1000, \"aon\": \"N\"},\r\n    {\"clientId\": \"Y\",\"buySell\":\"SELL\",\"quantity\":800, \"aon\":  \"N\"},\r\n    {\"clientId\": \"M\",\"buySell\":\"SELL\",\"quantity\":200, \"aon\":  \"N\"}\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/processTrade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"processTrade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "convertJsonToXml",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"clientId\": \"X\",\"buySell\":\"BUY\",\"quantity\":1000, \"aon\": \"N\"},\r\n    {\"clientId\": \"Y\",\"buySell\":\"SELL\",\"quantity\":800, \"aon\":  \"N\"},\r\n    {\"clientId\": \"M\",\"buySell\":\"SELL\",\"quantity\":200, \"aon\":  \"N\"}\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/processTrade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"processTrade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "convertXmlToJson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<ObjectNode>\r\n    <clientId>X</clientId>\r\n    <buySell>BUY</buySell>\r\n    <quantity>1000</quantity>\r\n    <aon>N</aon>\r\n</ObjectNode>\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/convertXmlToJson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convertXmlToJson"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
