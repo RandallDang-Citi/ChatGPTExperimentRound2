@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "efaf970c-171e-4681-b930-c257965c0a76",
+		"name": "Copilot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15029522",
+		"_collection_link": "https://dark-star-50941.postman.co/workspace/My-Workspace~b3fe5c8c-d2f6-4d94-bd57-152b2d0430aa/collection/15029522-efaf970c-171e-4681-b930-c257965c0a76?action=share&creator=15029522&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"applicationCsi\":175051,\r\n    \"applicationName\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/api/registration",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "claim",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"applicationCsi\":175051,\r\n    \"applicationName\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/api/claim?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwOTI0MzUsImFwcGxpY2F0aW9uQ3NpIjoiMTc1MDUxIiwiYXBwbGljYXRpb25OYW1lIjoidGVzdCJ9.LYC-GB8n37VZOxU8jJGRYJlcSZOhPKo1cdxNSr15yiM",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claim"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwOTI0MzUsImFwcGxpY2F0aW9uQ3NpIjoiMTc1MDUxIiwiYXBwbGljYXRpb25OYW1lIjoidGVzdCJ9.LYC-GB8n37VZOxU8jJGRYJlcSZOhPKo1cdxNSr15yiM"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
