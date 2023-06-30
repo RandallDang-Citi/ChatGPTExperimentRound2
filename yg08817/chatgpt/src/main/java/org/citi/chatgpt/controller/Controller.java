@@ -47,7 +47,7 @@ public class Controller {
             @RequestBody String token) {
         try {
             Claims claims = Jwts.parser().setSigningKey(encryKey).parseClaimsJws(token).getBody();
-            if (claims.getExpiration().before(new Date())) {
+            if (claims.getExpiration().after(new Date())) {
                 return ResponseEntity.badRequest().body(Response.builder().token(token).status("EXPIRED").build());
             }
 
