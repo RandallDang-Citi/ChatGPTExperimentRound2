@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "ff29bd44-913d-4de4-ad2a-b3cd60898d4d",
+		"name": "chatGPT round 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/api/claim",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\":\"eyJhbGciOiJIUzI1NiJ9.eyJhcHBsaWNhdGlvbkNzaSI6IjE3NTA1MSIsImFwcGxpY2F0aW9uTmFtZSI6InRlc3RBcHBsaWNhdGlvbiIsImV4cCI6MTY4ODA5NDExNH0.7bc8PrE8-cnhzzNTF9cvW4i4PD5gGJwtp8ley08S7zE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/claim",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claim"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"applicationCsi\": \"175051\",\r\n\"applicationName\": \"testApplication\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/registration",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
