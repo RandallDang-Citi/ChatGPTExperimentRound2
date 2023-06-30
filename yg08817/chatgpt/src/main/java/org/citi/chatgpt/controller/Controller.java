@@ -45,14 +45,20 @@ public class Controller {
     @GetMapping("/api/claim")
     public ResponseEntity<Response> claim(
             @RequestBody String token) {
+        try {
+            Claims claims = Jwts.parser().setSigningKey(encryKey).parseClaimsJws(token).getBody();
+            if (claims.getExpiration().before(new Date())) {
+                return ResponseEntity.badRequest().body(Response.builder().token(token).status("EXPIRED").build());
+            }
 
-        Claims claims = Jwts.parser().setSigningKey(encryKey).parseClaimsJws(token).getBody();
-        if (claims.getExpiration().before(new Date())) {
-            return ResponseEntity.badRequest().body(Response.builder().token(token).status("EXPIRED").build());
+            return ResponseEntity.ok(Response.builder().token(token).status("SUCCESS").build());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Response.builder().token(token).status("FAILED").build());
         }
 
-        return ResponseEntity.ok(Response.builder().token(token).status("SUCCESS").build());
     }
 
-
 }
+
+
+
