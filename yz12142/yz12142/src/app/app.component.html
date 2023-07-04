@@ -1,0 +1,23 @@
+<div>
+  <!-- add a typeahead dropdown with label call 'accounts' -->
+  <div>
+    <label style="display: block;">Accounts</label>
+    <input type="text" placeholder="Search" aria-label="Search" [(ngModel)]="selectedAccount"
+      (click)="renderDropdown()" />
+  </div>
+  <div *ngIf="clickedDropdown" style="position: absolute;">
+    <ul>
+      <!-- render dropdownOptions in for lope -->
+      <li *ngFor="let option of dropdownOptions">
+        <a (click)="onSelectedAccount(option)">{{option}}</a>
+      </li>
+    </ul>
+  </div>
+  <!-- add a ag-grid table with given columns and data -->
+  <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-balham" [rowData]="rowData"
+    [columnDefs]="columnDefs">
+  </ag-grid-angular>
+  <!-- add pagination component to fetch ag-grid table more -->
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="totalRecords" [nzPageSize]="pageSize"
+    (click)="pageChanged($event)"></nz-pagination>
+</div>

@@ -1,7 +1,6 @@
 package org.example.controller;
 
 import com.alibaba.fastjson.JSON;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.example.jwtUtils.JWT;
 import org.springframework.util.CollectionUtils;
@@ -23,12 +22,12 @@ public class Demo {
 
     @PostMapping("/api/claim")
     public String parseJWT(@RequestBody Map request) {
-        if (CollectionUtils.isEmpty(request) && StringUtils.isEmpty((String)request.get("token"))) {
-            return "request token is null" ;
+        if (CollectionUtils.isEmpty(request)) {
+            return "request param is null" ;
         }
         Map<String, Object> payloadMap = JWT.parserJavaWebToken((String) request.get("token"));
         if(CollectionUtils.isEmpty(payloadMap)){
-            return "token is invalid or expired , consider to regenerate a new one";
+            return "token is invalid";
         }else {
             return JSON.toJSONString(payloadMap);
         }

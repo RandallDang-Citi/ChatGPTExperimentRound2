@@ -20,7 +20,9 @@ public class JWT {
 
     private static final String KEY = "TTS Tech China-THE BEST CSC";
 
+    //该方法使用HS256算法和Secret:bankgl生成signKey
     private static Key getKeyInstance( ) {
+        //We will sign our JavaWebToken with our ApiKey secret
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(getCustomKey());
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName( ));
@@ -28,11 +30,10 @@ public class JWT {
     }
 
     private static String getCustomKey() {
-        //使用base64加密字符串
         return DatatypeConverter.printBase64Binary(KEY.getBytes());
     }
 
-    //使用HS256签名算法生成的signingKey最终的Token,claims 中是有效载荷
+    //使用HS256签名算法和生成的signingKey最终的Token,claims 中是有效载荷
     public static String createJavaWebToken(Map< String, Object > claims, Date endtime) {
         return Jwts.builder( ).setClaims(claims).setExpiration(endtime).signWith(SignatureAlgorithm.HS256, getKeyInstance( )).compact( );
     }

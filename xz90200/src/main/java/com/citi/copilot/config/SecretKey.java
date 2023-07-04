@@ -20,6 +20,6 @@ public class SecretKey implements ApplicationListener<ApplicationStartedEvent> {
     public void onApplicationEvent(ApplicationStartedEvent event) {
         String baseStr = "TTS Tech China - THE BEST CSC";
         // 用baseStr 生成一个JWT secret key
-        this.secretKey = String.valueOf(Base64.getEncoder().encodeToString(baseStr.getBytes()).hashCode());
+        this.secretKey = Base64.getEncoder().encodeToString(baseStr.getBytes());
     }
 }
